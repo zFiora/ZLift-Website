@@ -40,7 +40,7 @@
     <div class="doc-header">
       <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="doc-meta">Effective date: <time datetime="2026-10-06">6 October 2026</time></p>
+        <p class="doc-meta">Effective date: <time datetime="2026-10-07">7 October 2026</time></p>
         <p>This policy explains what information the ZLift mobile app and this website collect, where it is stored, who can see it, and the choices you have.</p>
       </div>
     </div>
@@ -194,7 +194,7 @@
         <li>Other users can't see your email address, profile details, body weight, workout history, notes or progress photos.</li>
       </ul>
       <h3>ZLift administrators</h3>
-      <p>A small number of ZLift administrators can access account information for support, security and abuse handling. That includes your email, username, display name, profile photo, sex, date of birth, height, time zone, your workout records, your template names and the bug reports you send (including screenshots). Administrators can see how many body-weight entries you have, but not the entries themselves. Administrator actions, such as suspending an account, are recorded in an internal audit log.</p>
+      <p>A small number of ZLift administrators can access account information for support, security and abuse handling. That includes your email, username, display name, profile photo, sex, date of birth, height, time zone, your workout records, your template names and the bug reports you send (including screenshots). Administrators can see how many body-weight entries you have, but not the entries themselves. Administrator actions, such as suspending an account, are recorded in an internal audit log. When you delete your account, that deletion is recorded there too (see <a href="#account-deletion">Account deletion</a>).</p>
 
       <h2 id="service-providers">11. Service providers</h2>
       <p>We use these providers to run ZLift. They process data on our behalf, only to provide their service:</p>
@@ -226,7 +226,8 @@
       <h2 id="retention">13. Data retention</h2>
       <!-- Rows describe what the server does today (checked in WorkoutTrackerAPI on 2026-10-06: no purge job;
            deleted workouts/templates are soft-deleted; AdminAuditLog has no foreign key to the user, so entries
-           survive account deletion). Backup and provider-log rows deliberately name no period: those are set by
+           survive account deletion; DELETE /api/users/me also adds an ACCOUNT_DEL entry with the user id,
+           username and time, no email). Backup and provider-log rows deliberately name no period: those are set by
            the providers, not by ZLift's code. Update the rows if the code or settings change. -->
       <div class="table-wrap">
         <table>
@@ -244,6 +245,7 @@
             <tr><td>Database backups</td><td>Our database provider (Neon) keeps backup and restore history for recovery. Deleted data can remain in it until that history expires under the provider's settings</td></tr>
             <tr><td>Hosting and email provider logs</td><td>Kept by Railway, Cloudflare and Resend under their own settings and policies</td></tr>
             <tr><td>Administrator audit log entries that mention your username</td><td>Kept after your account is deleted. They record the administrator action (for example, a suspension), not your account data</td></tr>
+            <tr><td>Account-deletion record: your user ID, username, that the account was deleted, and when (not your email address)</td><td>Kept after your account is deleted, for administrative, security and audit purposes. ZLift has no automatic deletion period for it</td></tr>
             <tr><td>Data stored only on your device (progress photos, custom exercises, settings)</td><td>Until you delete it, delete your account on that device, or uninstall the app</td></tr>
           </tbody>
         </table>
@@ -255,7 +257,8 @@
         <li>On our servers, your account and everything linked to it are deleted: profile, profile photo, workouts (including previously deleted ones), templates, shared templates, body-weight entries, exercise notes, friend connections, bug reports and screenshots, and password-reset records.</li>
         <li>On the device you delete from, ZLift also removes that account's local data, including its progress photos and custom-exercise photos.</li>
         <li>Data on other devices where you used ZLift stays there until you uninstall the app on those devices. So does data in your own device backups.</li>
-        <li>Some records can remain after deletion: copies in database backups, hosting and email provider logs, and administrator audit log entries. See <a href="#retention">Data retention</a>.</li>
+        <li>We keep a record that the account was deleted: your user ID, username, the deletion action and when it happened, but not your email address. It stays after your account is deleted, for administrative, security and audit purposes, and ZLift has no automatic deletion period for it.</li>
+        <li>Some other records can remain after deletion: copies in database backups, hosting and email provider logs, and administrator audit log entries. See <a href="#retention">Data retention</a>.</li>
       </ul>
       <p>If you can't access the app, you can ask us to delete your account by contacting us at <a href="mailto:support@zlift.online">support@zlift.online</a> from the email address registered to your account. More information is on the <a href="/support#delete-account">Support page</a>.</p>
 
