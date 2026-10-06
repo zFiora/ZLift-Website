@@ -1,0 +1,15 @@
+{
+  "name": "zlift-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public website for ZLift (zlift.online): landing page, privacy policy, terms and support.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/check-site.mjs",
+    "check:release": "node scripts/check-site.mjs --strict",
+    "preview": "npx --yes wrangler@4 pages dev public --port 8788"
+  }
+}
