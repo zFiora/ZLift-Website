@@ -36,14 +36,31 @@ The header and footer are repeated in each page; keep them identical when editin
 ## Commands (Node 18+)
 
 ```sh
-npm run build          # check links, anchors, assets, metadata; list TODO placeholders
-npm run check:release  # same, but fails while any TODO placeholder remains
+npm run build          # all checks; fails on any error or MANUAL DECISION REQUIRED / TODO marker
+npm run check:release  # same as build
+npm run check:draft    # same checks, but only lists blocking markers (for work in progress)
 npm run preview        # local Cloudflare Pages emulation at http://127.0.0.1:8788 (downloads wrangler via npx)
 ```
 
-## Before production
+The checker covers: internal links and `#anchors`, assets, metadata, shared navigation, the single
+support address `support@zlift.online` (shown on Privacy, Terms and Support; any other address fails),
+a real effective date whose text matches its `datetime` on Privacy and Terms, the required sections
+(Privacy: who we are, information collected, use, who can see it, providers, retention, account deletion,
+rights, minimum age, changes, contact; Terms: acceptance, eligibility, termination, changes, contact;
+Support: contact and `#delete-account`), the deletion links between them, and placeholder text
+(`TBD`, `[insert …]`, `lorem ipsum`, draft banners, …).
 
-Search for `TODO` (`npm run build` lists every one). These include the support email, the legal entity, effective dates, retention periods and legal review. Then run `npm run check:release`.
+ZLift is run by an individual developer. The checker intentionally does **not** require a company name,
+postal address, provider regions or retention periods; don't add checks that could only pass by inventing them.
+
+## Markers
+
+- `MANUAL DECISION REQUIRED`: needs the owner's decision before release. Fails the build.
+- `TODO`: unfinished work. Fails the build.
+- `OPTIONAL DECISION`: possible later improvements (e.g. lawful basis per purpose, governing law, provider
+  regions, change notices). Listed only; not needed to publish.
+
+Change the effective date (`<time datetime="YYYY-MM-DD">` and its text) whenever a policy's content changes.
 
 ## Cloudflare Pages settings
 

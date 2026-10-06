@@ -40,16 +40,14 @@
     <div class="doc-header">
       <div class="container">
         <h1>Privacy Policy</h1>
-        <!-- TODO(effective-date): set the real date when this policy is published. -->
-        <p class="doc-meta">Effective date: <span class="todo">TODO: publication date</span></p>
+        <p class="doc-meta">Effective date: <time datetime="2026-10-06">6 October 2026</time></p>
         <p>This policy explains what information the ZLift mobile app and this website collect, where it is stored, who can see it, and the choices you have.</p>
       </div>
     </div>
 
     <article class="container doc">
-      <!-- TODO(legal-review): this text was written from the app's implementation (data inventory in the
-           Flutter project's PRODUCTION_READINESS.md §B2/§B3) and has not been legally reviewed. -->
-      <p class="todo-banner"><strong>Draft:</strong> this policy has placeholders, marked <span class="todo">TODO</span>, that have to be filled in and legally reviewed before ZLift is released.</p>
+      <!-- Written from the app's and API's actual behaviour (data inventory in the Flutter project's
+           PRODUCTION_READINESS.md). Re-check it whenever data collection, sharing or deletion changes. -->
 
       <nav class="toc" aria-labelledby="toc-title">
         <h2 id="toc-title">Contents</h2>
@@ -78,13 +76,10 @@
       </nav>
 
       <h2 id="who-we-are">1. Who we are</h2>
-      <p>ZLift is a workout and strength-training tracker for Android and iOS. In this policy, "ZLift", "we" and "us" refer to the person or organisation responsible for the app:</p>
-      <!-- TODO(identity): the developer / data controller has not been decided yet (individual or company).
-           Fill in the legal name and, if required where you operate, a postal address. -->
+      <p>ZLift is a workout and strength-training tracker for Android and iOS. It is built and run by an independent developer: an individual, not a company. In this policy, "ZLift", "we" and "us" mean that developer, who is responsible for the information described here.</p>
       <ul>
-        <li>Operator: <span class="todo">TODO: legal name of the individual or company operating ZLift</span></li>
-        <li>Address: <span class="todo">TODO: postal address, if required</span></li>
-        <li>Contact: <span class="todo">TODO: support email address</span></li>
+        <li>Developer: the individual shown as the developer of ZLift on its Google Play and App Store listings</li>
+        <li>Contact: <a href="mailto:support@zlift.online">support@zlift.online</a></li>
       </ul>
 
       <h2 id="summary">2. Summary</h2>
@@ -120,6 +115,7 @@
         <li><strong>Body weight</strong>, saved as your first weigh-in.</li>
         <li><strong>Activity level</strong>, which you can set in the Measures tab.</li>
       </ul>
+      <p>ZLift doesn't accept a date of birth that makes you younger than 13 (see <a href="#children">Minimum age</a>).</p>
       <p>These details are used to estimate your calorie and macro targets. The estimates themselves are calculated on your device and are not stored on our servers. The details above are stored on your device and, with an account, on our servers.</p>
 
       <h3 id="measurements">3.4 Body weight and measurements</h3>
@@ -154,8 +150,8 @@
         <li>Custom exercises, custom-exercise photos, personal records and your app settings (theme, units, rest timer, notification preference, tips you've seen) are also stored only on your device.</li>
       </ul>
       <h3 id="device-backups">Device backups</h3>
-      <!-- TODO(backups): PRODUCTION_READINESS.md P5. The app currently uses the platform defaults (no backup
-           exclusions). If you decide to exclude ZLift's data from device backups, rewrite this paragraph. -->
+      <!-- NOTE (PRODUCTION_READINESS.md P5): accurate for the current build, which uses the platform backup
+           defaults (no backup exclusions). If ZLift's data is ever excluded from device backups, rewrite this paragraph. -->
       <p>ZLift uses your phone's standard backup settings. If device backups are turned on, your phone's operating system may include ZLift's on-device data, including progress photos, in your own Google (Android) or iCloud/computer (iOS) device backup. Those backups belong to your Google or Apple account, not to ZLift, and we cannot access them. Because progress photos exist only on your device, losing or resetting your phone without a backup also means losing them.</p>
 
       <h2 id="offline-and-sync">5. Offline use and synchronization</h2>
@@ -188,9 +184,7 @@
         <li>respond to bug reports and support requests;</li>
         <li>prevent abuse, enforce our <a href="/terms">Terms of Service</a> and, where necessary, suspend accounts.</li>
       </ul>
-      <!-- TODO(legal-basis): if ZLift is offered in the EU/UK, add the lawful basis for each purpose
-           and decide whether health-related data (body weight, sex, date of birth, height) needs
-           special treatment. PRODUCTION_READINESS.md P4. Needs legal advice. -->
+      <!-- OPTIONAL DECISION (legal-basis): a lawful basis per purpose (EU/UK) can be added after legal advice. -->
 
       <h2 id="who-can-see">10. Who can see your information</h2>
       <h3>Other ZLift users</h3>
@@ -230,9 +224,10 @@
       </ul>
 
       <h2 id="retention">13. Data retention</h2>
-      <!-- TODO(retention): PRODUCTION_READINESS.md P6. Retention periods for deleted workouts/templates,
-           database backups, the admin audit log and provider logs have not been decided. Replace the
-           TODO cells with real periods once decided (and implemented, where code is needed). -->
+      <!-- Rows describe what the server does today (checked in WorkoutTrackerAPI on 2026-10-06: no purge job;
+           deleted workouts/templates are soft-deleted; AdminAuditLog has no foreign key to the user, so entries
+           survive account deletion). Backup and provider-log rows deliberately name no period: those are set by
+           the providers, not by ZLift's code. Update the rows if the code or settings change. -->
       <div class="table-wrap">
         <table>
           <caption class="visually-hidden">How long ZLift keeps each kind of data</caption>
@@ -243,12 +238,12 @@
             <tr><td>Account, profile, templates, body-weight entries and exercise notes</td><td>Until you delete them or delete your account</td></tr>
             <tr><td>Friend connections</td><td>Until you delete your account</td></tr>
             <tr><td>Body-weight entries you delete</td><td>Removed from our servers immediately</td></tr>
-            <tr><td>Workouts and templates you delete in the app</td><td>Removed from the app, but a copy stays on our servers until you delete your account. <span class="todo">TODO: decide a shorter retention period</span></td></tr>
+            <tr><td>Workouts and templates you delete in the app</td><td>Removed from the app, but a copy stays on our servers until you delete your account</td></tr>
             <tr><td>Bug reports and screenshots</td><td>Until you delete your account</td></tr>
             <tr><td>Password-reset codes (stored only in hashed form)</td><td>Usable for 30 minutes and once only. The hashed record is kept until you delete your account</td></tr>
-            <tr><td>Database backups</td><td><span class="todo">TODO: backup retention period</span></td></tr>
-            <tr><td>Hosting and email provider logs</td><td><span class="todo">TODO: retention per Railway, Cloudflare and Resend settings</span></td></tr>
-            <tr><td>Administrator audit log entries that mention your username</td><td><span class="todo">TODO: decide whether these are anonymised when an account is deleted</span></td></tr>
+            <tr><td>Database backups</td><td>Our database provider (Neon) keeps backup and restore history for recovery. Deleted data can remain in it until that history expires under the provider's settings</td></tr>
+            <tr><td>Hosting and email provider logs</td><td>Kept by Railway, Cloudflare and Resend under their own settings and policies</td></tr>
+            <tr><td>Administrator audit log entries that mention your username</td><td>Kept after your account is deleted. They record the administrator action (for example, a suspension), not your account data</td></tr>
             <tr><td>Data stored only on your device (progress photos, custom exercises, settings)</td><td>Until you delete it, delete your account on that device, or uninstall the app</td></tr>
           </tbody>
         </table>
@@ -260,10 +255,9 @@
         <li>On our servers, your account and everything linked to it are deleted: profile, profile photo, workouts (including previously deleted ones), templates, shared templates, body-weight entries, exercise notes, friend connections, bug reports and screenshots, and password-reset records.</li>
         <li>On the device you delete from, ZLift also removes that account's local data, including its progress photos and custom-exercise photos.</li>
         <li>Data on other devices where you used ZLift stays there until you uninstall the app on those devices. So does data in your own device backups.</li>
+        <li>Some records can remain after deletion: copies in database backups, hosting and email provider logs, and administrator audit log entries. See <a href="#retention">Data retention</a>.</li>
       </ul>
-      <!-- TODO(deletion-without-app): Google Play requires a way to request deletion without the app.
-           Decide the process (e.g. email from the account's address to the support mailbox) and state it here. -->
-      <p>If you can't access the app, you can ask us to delete your account by contacting us at <span class="todo">TODO: support email address</span> from the email address registered to your account. More information is on the <a href="/support#delete-account">Support page</a>.</p>
+      <p>If you can't access the app, you can ask us to delete your account by contacting us at <a href="mailto:support@zlift.online">support@zlift.online</a> from the email address registered to your account. More information is on the <a href="/support#delete-account">Support page</a>.</p>
 
       <h2 id="your-rights">15. Your rights</h2>
       <p>Depending on where you live, you may have the right to access, correct, delete or receive a copy of your personal information, and to object to or restrict certain processing.</p>
@@ -272,33 +266,28 @@
         <li><strong>Delete:</strong> use in-app account deletion (see <a href="#account-deletion">section 14</a>).</li>
         <li><strong>Access or copy:</strong> data export isn't available in the app yet. You can request a copy of your data by contacting us.</li>
       </ul>
-      <p>To make a request, contact us at <span class="todo">TODO: support email address</span>. We may need to confirm that the request comes from the account owner. You may also have the right to complain to your local data-protection authority.</p>
-      <!-- TODO(rights): PRODUCTION_READINESS.md P4/P7. Confirm the rights and response process that apply in
-           the regions where ZLift will be distributed (e.g. GDPR/UK GDPR, US state laws). Needs legal advice. -->
+      <p>To make a request, contact us at <a href="mailto:support@zlift.online">support@zlift.online</a>. We may need to confirm that the request comes from the account owner. You may also have the right to complain to your local data-protection authority.</p>
+      <!-- OPTIONAL DECISION (rights): jurisdiction-specific rights wording (e.g. GDPR/UK GDPR, US state laws) after legal advice. -->
 
       <h2 id="children">16. Minimum age</h2>
-      <p>ZLift is not intended for children. You must be at least <strong>13 years old</strong> to use ZLift. If you are under the age required to consent to data processing where you live, you may only use ZLift with permission from a parent or guardian. If we learn that we have collected personal information from a child under 13, we will delete it. If you believe a child under 13 is using ZLift, please contact us.</p>
-      <!-- TODO(age-legal): the digital-consent age varies by country (13–16 in the EU). Confirm wording with
-           legal advice; PRODUCTION_READINESS.md P2/P3. -->
+      <p>ZLift is not intended for children. You must be at least <strong>13 years old</strong> to use ZLift. When you set up an account, the app asks for your date of birth and doesn't accept an age under 13. If you are under the age required to consent to data processing where you live, you may only use ZLift with permission from a parent or guardian. If we learn that we have collected personal information from a child under 13, we will delete it. If you believe a child under 13 is using ZLift, please contact us.</p>
+      <!-- OPTIONAL DECISION (age-legal): country-specific digital-consent ages (13–16 in the EU). Using the app
+           without an account has no age check and sends nothing to our servers. -->
 
       <h2 id="international">17. Where data is processed</h2>
-      <p>Our database is hosted by Neon in the AWS <strong>eu-central-1 (Frankfurt, Germany)</strong> region. Our other providers may process data in other countries.</p>
-      <ul>
-        <li>Railway server region: <span class="todo">TODO: confirm in the Railway dashboard</span></li>
-        <li>Resend processing location: <span class="todo">TODO: confirm in the Resend dashboard</span></li>
-      </ul>
-      <!-- TODO(transfers): describe the safeguards for international transfers if required (P4). -->
+      <p>Our database is hosted by Neon in the AWS <strong>eu-central-1 (Frankfurt, Germany)</strong> region. Our other service providers (Railway, Resend and Cloudflare) may process data in other countries, which may not be the country you live in.</p>
+      <!-- OPTIONAL DECISION (transfers): provider regions and transfer safeguards can be listed later; no region
+           is stated here that hasn't been confirmed. -->
 
       <h2 id="website">18. This website</h2>
       <p>zlift.online is a static website. It sets no cookies and loads no analytics, advertising, fonts or scripts from third parties. Cloudflare hosts it and processes standard technical request data, such as IP addresses, to deliver and protect the site.</p>
 
       <h2 id="changes">19. Changes to this policy</h2>
       <p>We may update this policy as ZLift changes. We'll post the new version on this page and update the effective date at the top.</p>
-      <!-- TODO(changes-notice): decide whether material changes are also announced in the app or by email. -->
-
+      <!-- OPTIONAL DECISION (changes-notice): whether material changes are also announced in the app or by email. -->
 
       <h2 id="contact">20. Contact</h2>
-      <p>Questions about this policy or your data: <span class="todo">TODO: support email address</span>. You can also visit the <a href="/support">Support page</a>.</p>
+      <p>Questions about this policy or your data: <a href="mailto:support@zlift.online">support@zlift.online</a>. You can also visit the <a href="/support">Support page</a> or read our <a href="/terms">Terms of Service</a>.</p>
     </article>
   </main>
 

@@ -8,8 +8,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "node scripts/check-site.mjs",
+    "build": "node scripts/check-site.mjs --strict",
     "check:release": "node scripts/check-site.mjs --strict",
+    "check:draft": "node scripts/check-site.mjs",
     "preview": "npx --yes wrangler@4 pages dev public --port 8788"
   }
 }

@@ -47,9 +47,7 @@
     <article class="container doc">
       <section class="contact-card" aria-labelledby="contact">
         <h2 id="contact">Contact support</h2>
-        <!-- TODO(support-email): replace with the real, monitored support address once inbound mail works for
-             zlift.online (PRODUCTION_READINESS.md B5/P9), e.g. as a mailto: link. -->
-        <p>Email: <span class="todo">TODO: support email address</span></p>
+        <p>Email: <a href="mailto:support@zlift.online">support@zlift.online</a></p>
         <p>If you're signed in, you can also report a problem from the app: <strong>Account → Support → Report a Bug</strong>. You can follow up on your reports under <strong>Account → Support → My Bug Reports</strong>.</p>
         <p>When you email us about your account, please write from the email address registered to it.</p>
       </section>
@@ -107,9 +105,7 @@
       <p>Deletion is <strong>immediate and permanent</strong>. Your account and its data are deleted from our servers: profile, profile photo, workouts, templates, measurements, notes, friends and bug reports. That account's data, including progress photos, is also removed from the device you delete from. Details, and the small amount of data that may be kept, are in the <a href="/privacy#account-deletion">Privacy Policy</a>.</p>
       <p>Data stored on other devices where you used ZLift stays there until you uninstall the app on those devices.</p>
       <h3>Without the app</h3>
-      <!-- TODO(deletion-without-app): Google Play requires a deletion path that doesn't need the app.
-           Confirm this process (and the address) before release. -->
-      <p>If you can't use the app, email <span class="todo">TODO: support email address</span> from the email address registered to your account, with the subject "Delete my ZLift account". We may ask you to confirm that the account is yours before we delete it.</p>
+      <p>If you can't use the app, email <a href="mailto:support@zlift.online">support@zlift.online</a> from the email address registered to your account, with the subject "Delete my ZLift account". We may ask you to confirm that the account is yours before we delete it. We then delete the same data as in-app deletion, as described in the <a href="/privacy#account-deletion">Privacy Policy</a>.</p>
       <p>Just want to stop using ZLift without an account? Uninstalling the app removes the data stored on your device.</p>
 
       <h2 id="sync">Syncing and offline use</h2>
@@ -135,14 +131,14 @@
         <li>Friends and leaderboards need an account and an internet connection.</li>
         <li>To add someone, search for their username or display name and send a friend request. They need to accept it.</li>
         <li>Incoming friend requests can be accepted or declined on the Manage Friends screen.</li>
-        <!-- TODO(remove-friend): the API supports removing a friend, but the app has no button for it yet.
+        <!-- NOTE: the API supports removing a friend, but the app has no button for it yet.
              Once it does, replace the next line with where to find it. -->
         <li>Removing an existing friend isn't available in the app yet.</li>
         <li>To report abusive behaviour by another user, contact support with their username.</li>
       </ul>
 
       <h2 id="your-data">Getting a copy of your data</h2>
-      <p>Data export isn't available in the app yet. To request a copy of the data stored on our servers, email <span class="todo">TODO: support email address</span> from your account's email address.</p>
+      <p>Data export isn't available in the app yet. To request a copy of the data stored on our servers, email <a href="mailto:support@zlift.online">support@zlift.online</a> from your account's email address.</p>
 
       <h2 id="report-bug">Reporting a bug</h2>
       <p>The quickest way is in the app: <strong>Account → Support → Report a Bug</strong>. It automatically includes the app version, your phone's operating system and version, and the screen you were on. You can attach a screenshot. If you can't sign in, email support instead.</p>
@@ -162,6 +158,7 @@
       <ul>
         <li><a href="/privacy">Privacy Policy</a>: what ZLift collects and how it's used.</li>
         <li><a href="/terms">Terms of Service</a>: the rules for using ZLift.</li>
+        <li><a href="/privacy#account-deletion">Account deletion</a>: what is deleted and what may be kept.</li>
       </ul>
     </article>
   </main>
